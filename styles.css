@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(./img/background-fort.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+div#inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    border-radius: 10px;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.867);
+}
+
+label {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    margin: 1rem 0;
+}
+
+#content {
+    width: 100%;
+}
+
+#title {
+    background-color: white;
+    color: black;
+    font-size: 5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#maturity {
+    background-color: black;
+    color: white;
+    font-size: 10rem;
+    font-weight: 500;
+    padding: .4rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#due-date {
+    background-color: white;
+    color: black;
+    font-size: 8.9rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#name-lecturer {
+    background-color: black;
+    color: white;
+    font-size: 5rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Prohibited {
+    height: 7rem;
+    background-color: white;
+    color: black;
+    font-size: 4.5rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contentButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+#generate-pdf {
+    width: 5rem;
+    background: rgb(9, 102, 223);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: .5rem;
+}
+
+img#logo-form {
+    width: 60%;
+    margin-bottom: 1rem
+}
+
+img#img-pdf {
+    width: 20%;
+    margin-left: 2rem;
+}
