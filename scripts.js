@@ -4,28 +4,44 @@ const namelecturer = document.querySelector("#input-text")
 const contentPDF = document.querySelector("#content")
 let maturity = document.querySelector("#maturity")
 const Prohibited = new Date();
-btnGenerate.addEventListener("click", () => {
+let conferentes = document.querySelector('#conferentes')
 
-    const validade = new Date(inputDate.value);
+function App() {
+    let val = inputDate.value
+    let arrayDate = val.split('')
 
+    if (conferentes.value == "") {
+        alert('Selecione um conferente')
+    } else {
+        // Extrair os valores de dia, mês e ano da string fornecida
+        const dia = arrayDate[0] + arrayDate[1] + '-';
+        const mes = arrayDate[2] + arrayDate[3] + '-';
+        const ano = arrayDate[4] + arrayDate[5] + arrayDate[6] + arrayDate[7];
 
-    let anoInicial = '01-01-' + new Intl.DateTimeFormat('pt-br', {year: 'numeric'}).format(validade)
+        formattedDate = dia + mes + ano
 
-    formattedAnoInicial = new Date(anoInicial)
-    anoFinal = new Date(inputDate.value)
-    
-        let deffInTime = Math.abs(anoFinal - formattedAnoInicial)
+        let anoInicial = '01-01-' + new Date('02-05-2024').getFullYear();
+
+        formattedAnoInicial = new Date(anoInicial)
+
+        anoFinal = formattedDate.split('-').reverse().join().replace(/,/g, '-')
+
+        let deffInTime = Math.abs(new Date(anoFinal) - formattedAnoInicial)
         let timeInOneDay = 1000 * 60 * 60 * 24
         let diffInDays = Math.ceil(deffInTime / timeInOneDay)
 
-    contentPDF.innerHTML = `
-    <p id="title">VENCIMENTO</p>
-    <div id="maturity">${new Intl.DateTimeFormat('pt-br', {timeZone: 'Asia/Tokyo'}).format(validade)}</div>
-    <p id="due-date">${diffInDays + 1}</p>
-    <P id="name-lecturer">CONF.:  ${'   ' + namelecturer.value.toUpperCase()}</P>
-    <p id="Prohibited">Entrada: <strong> ${new Intl.DateTimeFormat('pt-br').format(Prohibited)}</strong><img id="img-pdf" src="./img/logo-fort.png" alt="Logo do Fort"></p>
-    `
-    
+        if (diffInDays == 1) {
+            diffInDays = 0
+        }
+
+        contentPDF.innerHTML = `
+        <p id="title">VENCIMENTO</p>
+        <div id="maturity">${formattedDate.replace(/-/g, '/')}</div>
+        <p id="due-date">${diffInDays + 1}</p>
+        <P id="name-lecturer">CONF.:  ${'   ' + conferentes.value.toUpperCase()}</P>
+        <p id="Prohibited">Entrada: <strong> ${new Intl.DateTimeFormat('pt-br').format(Prohibited)}</strong><img id="img-pdf" src="./img/logo-fort.png" alt="Logo do Fort"></p>
+        `
+
     // Conteúdo do PDF
     const content = document.querySelector("#content")
 
@@ -37,8 +53,8 @@ btnGenerate.addEventListener("click", () => {
             scale: 2
         },
         jsPDF: {
-            unit: "mm", 
-            format: "a4", 
+            unit: "mm",
+            format: "a4",
             orientation: "landscape"
         }
     }
@@ -49,4 +65,14 @@ btnGenerate.addEventListener("click", () => {
     setTimeout(function () {
         contentPDF.innerHTML = ``
     }, 1)
+    }    
+}
+
+
+$(document).ready(function (params) {
+    $("#input-date").keypress(function () {
+        if (this.value.length == 8) {
+            return false
+        }
+    })
 })
