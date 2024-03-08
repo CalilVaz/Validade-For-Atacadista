@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,24 +10,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+
 <body>
     <div id="inputs">
         <img id="logo-form" src="./img/logo-fort.png" alt="">
         <label>Digite a data de vencimento:</label>
-        <input type="date" name="date" id="input-date">
-        <label >Digite o nome do conferente:</label>
-        <input placeholder="Nome do conferente" type="text" name="text" id="input-text">
-        
+        <input type="number" pattern="0-8" maxlength="8" id="input-date">
+        <label>Digite o nome do conferente:</label>
+
+        <form action="">
+            <select name="conferentes" id="conferentes">
+                <option value="">Selecione o conferente</option>
+                <option value="Caliel">Caliel Vaz</option>
+                <option value="Filipe">Filipe</option>
+                <option value="Guilherme">Guilherme</option>
+                <option value="Francisca">Francisca</option>
+            </select>
+
+        </form>
+
         <div id="contentButton">
-            <button id="generate-pdf">Gerar PDF</button>
+            <button id="generate-pdf" onclick="App()">Gerar PDF</button>
         </div>
-        <footer><p>Criado com ❤️ por Calil Vaz</p></footer>
+        <footer>
+            <p>Criado com ❤️ por Calil Vaz</p>
+        </footer>
     </div>
     <div id="content">
-            
+
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="scripts.js" defer></script>
+
 </body>
+
 </html>
