@@ -20,8 +20,10 @@ function App() {
 
         formattedDate = dia + mes + ano
 
-        let anoInicial = '01-01-' + new Date('02-05-2024').getFullYear();
+        console.log(formattedDate);
 
+        let anoInicial = '01-01-' + ano;
+        console.log(anoInicial);
         formattedAnoInicial = new Date(anoInicial)
 
         anoFinal = formattedDate.split('-').reverse().join().replace(/,/g, '-')
